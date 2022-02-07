@@ -39,7 +39,7 @@ class Login extends React.Component {
     this.setState({
       carregando: true,
     });
-    const nomeRequisicao = { name }
+    const nomeRequisicao = { name };
     await createUser(nomeRequisicao);
 
     this.setState({
