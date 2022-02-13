@@ -8,6 +8,7 @@ class MusicCard extends Component {
     super();
     this.state = {
       carregando: false,
+      favorited: false,
     };
   }
 
@@ -18,12 +19,13 @@ class MusicCard extends Component {
      await addSong(music);
      this.setState({
        carregando: false,
+       favorited: true,
      });
    };
 
    render() {
-     const { music } = this.props;
-     const { carregando } = this.state;
+     const { music, favorite } = this.props;
+     const { carregando, favorited } = this.state;
      return (
        <div>
          <p>{ music.trackName }</p>
@@ -36,12 +38,14 @@ class MusicCard extends Component {
          </audio>
          <label
            htmlFor="favorito"
+
          >
            <input
              type="checkbox"
              data-testid={ `checkbox-music-${music.trackId}` }
-             id="favorito"
-             onChange={ () => this.onChecked(music) }
+             id={ music.trackId }
+             onClick={ () => this.onChecked(music) }
+             checked={ favorite ? true : favorited }
            />
          </label>
          {carregando && <Loading />}
@@ -52,6 +56,7 @@ class MusicCard extends Component {
 
 MusicCard.propTypes = {
   music: PropTypes.instanceOf(Object).isRequired,
+  favorite: PropTypes.string.isRequired,
 };
 
 export default MusicCard;
