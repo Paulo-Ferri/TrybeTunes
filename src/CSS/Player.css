@@ -1,0 +1,122 @@
+.custom_player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.play_pause_button {
+  display: flex;
+  font-size: 30px;
+  background: none;
+  color: #f50555;
+  cursor: pointer;
+}
+
+input[type=range] {
+  --seek-before-width: 0;
+  appearance: none;
+  border-radius: 10px;
+  background: #fee6ee;
+  position: relative;
+  width: 65%;
+  height: 1.5vh;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  border-radius: 10px;
+  background: #fee6ee;
+  position: relative;
+  width: 65%;
+  height: 1.5vh;
+  outline: none;
+}
+
+input[type=range]::-moz-range-track {
+  border-radius: 10px;
+  background: #fee6ee;
+  position: relative;
+  width: 65%;
+  height: 1.5vh;
+  outline: none;
+
+}
+
+input[type=range]::-moz-focus-outer {
+  border: 0;
+}
+
+input[type=range]::before {
+  content: '';
+  height: 1.5vh;
+  width: var(--seek-before-width);
+  background: #f50555;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-progress {
+  background-color: #620222;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 1.5vh;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 2vh;
+  width: 1.2vw;
+  border-radius: 50%;
+  border: none;
+  background-color: #c40444;
+  cursor: pointer;
+  position: relative;
+  margin: -2px 0 0 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+input[type=range]:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background-color: #930333;
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 2vh;
+  width: 1.2vw;
+  border-radius: 50%;
+  border: transparent;
+  background-color: #f50555;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+input[type=range]:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background-color: #930333;
+}
+
+button[type=checkbox] {
+  font-size: 20px;
+  display: flex;
+  background: none;
+  color: #f50555;
+  cursor: pointer;
+}
+
+.current_time {
+  width: 4vw;
+}
+
+.loadingFavorite {
+  width: 1.4vw;
+}

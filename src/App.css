@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+  font-family: Kanit , sans-serif;
+}
+
+.active {
+  border-bottom: 2px solid #f50555;
+}

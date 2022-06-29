@@ -1,52 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
-import MusicCard from '../components/MusicCard';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import '../CSS/Album.css';
+import Player from '../components/Player'
+import Loading from './Loading';
 
 class Album extends React.Component {
   constructor() {
     super();
     this.state = {
       musics: [],
-      artistName: '',
-      albumName: '',
-      favoriteSongs: [],
+      albumAttributes: {},
+      carregando: false,
     };
   }
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
+    this.setState({
+      carregando: true,
+    });
     const musicsFromAlbum = await getMusics(id);
     const onlyMusics = musicsFromAlbum.filter((music) => music.kind === 'song');
     this.setState({
-      artistName: musicsFromAlbum[0].artistName,
-      albumName: musicsFromAlbum[0].collectionName,
       musics: onlyMusics,
-    });
-    const favorites = await getFavoriteSongs();
-    this.setState({
-      favoriteSongs: favorites,
+      albumAttributes: musicsFromAlbum[0],
+      carregando: false,
     });
   }
 
   render() {
-    const { artistName, albumName, musics, favoriteSongs } = this.state;
+    const { musics, albumAttributes, carregando } = this.state;
     return (
-      <div data-testid="page-album">
-        <Header />
-        <p data-testid="artist-name">{artistName}</p>
-        <p data-testid="album-name">{albumName}</p>
-        {musics.map((music) => (
-          <MusicCard
-            key={ music.trackId }
-            music={ music }
-            favorite={ favoriteSongs
-              .some(() => favoriteSongs
-                .find((song) => song.trackId === music.trackId)) }
-          />
-        ))}
+      <div className="page_album">
+        {carregando ? <Loading /> : (
+          <>
+          <div className="album_details">
+            <img src={albumAttributes.artworkUrl100}/>
+          </div>
+          <div className="album_songs_container">
+            <h1>{musics.length && musics[0].collectionName}</h1>
+            <h2>{musics.length && musics[0].artistName}</h2>
+            {musics.map((music) => 
+              <div className="album_music_container" key={music.trackId}>
+                <p>{music.trackName}</p>
+                <Player music={music}/>
+              </div>
+            )}
+          </div>
+          </>
+        )}
       </div>
     );
   }

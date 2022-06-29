@@ -1,0 +1,62 @@
+.favorites_container {
+  color: white;
+  display:flex;
+  min-height: 85vh;
+  background-color: #1c212d;
+  flex-flow: column wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.favorite_songs {
+  display: flex;
+  margin-top: 10vh;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  min-height: 100%;
+}
+
+.favorite_card {
+  border: 1px solid #2d313a;
+  border-radius: 5px;
+  background-color: #161a24;
+  height: 50vh;
+  width: 22vw;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.favorite_card:hover {
+  background-color: #2d313a;
+  transition-duration: 0.25s;
+}
+
+.favorite_card > img {
+  margin-top: 2vh;
+  border-radius: 5px;
+  width: 14vw;
+}
+
+.favorite_card .duration {
+  display: none;
+}
+
+.favorite_card .custom_player {
+  width: 95%;
+  margin-bottom: 2vh;
+}
+
+.favorite_card input[type=range] {
+  width: 12vw;
+}
+
+.loading_favorites {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

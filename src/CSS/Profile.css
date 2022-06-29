@@ -1,0 +1,99 @@
+.profile_component {
+  align-content: flex-start;
+  background-color: #1c212d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  min-height: 85vh;
+  width: 100vw;
+}
+
+.link_profile_edit {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 1px solid #2d313a;
+  border-radius: 5px;
+  background-color: #161a24;
+  width: 7vw;
+  height: 5vh;
+  margin-top: 3vh;
+  cursor: pointer;
+}
+
+.link_profile_edit:hover {
+  background-color: #2d313a;
+  transition-duration: 0.25s;
+}
+
+.loading_profile_container {
+  align-items: center;
+  display: flex;
+  min-height: 85vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.profile_container {
+  display: flex;
+  flex-flow: column;
+  width: 25vw;
+  margin-top: 10vh;
+}
+
+.img_and_profile_edit > img {
+  border-radius: 50px;
+  width: 7vw;
+}
+
+.img_and_profile_edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.profile_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 2vh 0 0 1vw;
+  height: 30vh;
+}
+
+.profile_details > h1 {
+  font-size: 20px;
+}
+
+.edit_profile_modal {
+  position: relative;
+  z-index: 1;
+  inset: 0;
+}
+
+.dialog_modal_background {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(3px);
+}
+
+.fullscreen_modal_container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2vw;
+}
+
+.fullscreen_modal_container > button {
+  background: none;
+  color: #f50555;
+  font-size: 30px;
+  position: absolute;
+  left: 67vw;
+  bottom: 74vh;
+  cursor: pointer;
+}
